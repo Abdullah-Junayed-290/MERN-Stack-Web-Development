@@ -12,12 +12,12 @@ ConnectDB()
 .then(() => {
   // app routing...
   app.get("/", (req, res) => {
-    res.send("<h1 style='text-align: center; font-size: 100px; color: green;'>MongoDB Server and Application is ready!!!</h1>")
+    res.send(`${process.env.MONGODB_URI}`)
   })
   
   //app listen/runing...
   app.listen(process.env.PORT || 8000, () => {
-    console.log(`api server runing on http://localhost:${process.env.PORT}`);
+    console.log(`\n ○ api server runing on http://localhost:${process.env.PORT}`);
   })
 })
 .catch((err) => {
